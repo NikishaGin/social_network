@@ -1,15 +1,16 @@
-import classes from  './App.module.css';
-import {Header} from './components/Header'
 import {Nav} from './components/Nav'
 import {Profile} from "./components/Profile";
+import {Routes, Route} from "react-router-dom";
+import {Messages} from "./components/Messages";
 
 function App() {
     return (
-        <div className={classes.wrapper}>
-            <Header/>
-            <Nav/>
-            <Profile/>
-        </div>
+        <Routes>
+            <Route path={'/'} element={<Nav/>}>
+                <Route index element={<Profile/>}/>
+                <Route path={'messages'} element={<Messages/>}/>
+            </Route>
+        </Routes>
     );
 }
 
